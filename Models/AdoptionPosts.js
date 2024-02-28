@@ -3,7 +3,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const AdoptionPostSchema = mongoose.Schema({
     name:{
         type:String,
-        required: [true, "Please provide name"],
+       // required: [true, "Please provide name"],
         trim:true,
         lowercase:true,
         unique:true,
@@ -11,30 +11,29 @@ const AdoptionPostSchema = mongoose.Schema({
     },
     description:{
         type:String,
-        required:true
+       // required:true
     },
 
     status:{
         type:String,
-        required:[true, "required "],
+       // required:[true, "required "],
         enum:{
              values:["adopted","pending", "available"],
             message:"Cannot be {{other}} "
         },
     },
     images:[{
-        data: Buffer,   
-        contentType: String 
+     type:String
  
     }],
     location:{
         type:String,
-        required:true
+      //  required:true
     },
     contactNumber:{
      
             type:String,
-            required:[true,"provide a contact"],
+          //  required:[true,"provide a contact"],
             validator:(value)=>{
                 return validator.isMobilePhone(value)
             },
@@ -44,7 +43,7 @@ const AdoptionPostSchema = mongoose.Schema({
     postedBy:{
         name:{
             type:String,
-            required:true
+           // required:true
         },
         email:{
             type:String

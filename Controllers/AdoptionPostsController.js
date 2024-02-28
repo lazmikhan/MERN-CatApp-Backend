@@ -1,4 +1,13 @@
 const AdoptionPostService = require('../Services/AdoptionPostsServices.js')
+module.exports.fileUpload=(req, res)=>{
+    try{
+        res.json(req.file)
+    }
+    catch(error)
+    {
+        res.send(error)
+    }
+}
 module.exports.getAdoptionPosts=async (req,res)=>{
 try{
     const result =await  AdoptionPostService.getAdoptionPostService();
@@ -34,7 +43,8 @@ module.exports.getByIdAdoptionPosts= async (req,res)=>{
     }
 module.exports.postAdoptionPosts= async (req,res)=>{
     try{
-        
+        console.log(req.body)
+       req.body.images=['1709136797710-1000000001-WIN_20220429_17_18_12_Pro.jpg']
         const result = await AdoptionPostService.postAdoptionPostService(req.body);
         console.log(result)
         res.status(200).json({
