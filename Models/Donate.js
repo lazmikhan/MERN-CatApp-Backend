@@ -5,6 +5,9 @@ const DonationSchema = mongoose.Schema(
     amount: {
       type: Number,
     },
+    accountType:{
+type:String
+    },
     transactionId: {
       type: String,
     },
